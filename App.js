@@ -10,6 +10,19 @@ import { Card } from 'react-native-elements'; // 0.19.1
 
 export default class App extends React.Component {
 
+  constructor(){
+        super();
+        this.state = {
+            clickCount:0
+        }
+    }
+
+  onPressButton = () => {
+    this.setState({
+      clickCount: this.state.clickCount + 1
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -29,8 +42,11 @@ export default class App extends React.Component {
           style={{width: 70, height: 70}}
           source={{uri: 'https://ubisafe.org/images/transparent-cookie-cartoon.png'}}
       />
-
     </TouchableOpacity>
+
+        <Text style={styles.paragraph}>
+          {this.state.clickCount} Cookies
+        </Text>
 
       </View>
     );
